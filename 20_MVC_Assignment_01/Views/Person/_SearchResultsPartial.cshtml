@@ -1,0 +1,28 @@
+﻿@model _20_MVC_Assignment_01.Models.SearchResultViewModel
+@if (Model.AvailableUsers.Count() == 0)
+{
+    <h3 class="text-error">No items matched your search query!</h3>
+}
+else
+{
+    <table class="table">
+        @foreach (var item in Model.AvailableUsers)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fullName)
+                </td>
+                <td>
+                    @if (!Model.Following.Contains(item))
+                    {
+                    @Html.ActionLink("Follow", "Follow", new { id = item.user_id, currentUser = User.Identity.Name })
+                    }
+                    else
+                    {
+                    @Html.ActionLink("UnFollow", "UnFollow", new { id = item.user_id, currentUser = User.Identity.Name })
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}

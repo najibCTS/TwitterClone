@@ -1,0 +1,21 @@
+﻿@using _20_MVC_Assignment_01.Models
+@model Person
+
+<h4>Follow</h4>
+<div class="row">
+    <div class="form-group">
+        @using (Ajax.BeginForm("Search", "Person", FormMethod.Post,
+        new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "POST",
+            UpdateTargetId = "search-results"
+        }))
+        {
+            <div>
+                @Html.TextBox("query")
+                <input type="submit" value="Search" />
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@Html.AntiForgeryToken()
+
+<div class="row">
+    <hr/>
+    <div class="col-md-4">
+        <div id="search-form">
+            @Html.Action("SearchPerson", "Person")
+        </div>
+        <div id="search-results">
+        </div>
+        <hr />
+        <div>
+            @Html.Action("Statisctis", "Person")
+        </div>
+    </div>
+    <div class="col-md-8">
+        @Html.Partial("_Tweet", new _20_MVC_Assignment_01.Models.TweetViewModels())
+        <hr />
+        <div id="divTweets">
+            @Html.Action("Tweets", "Person")
+        </div>
+    </div>
+</div>
