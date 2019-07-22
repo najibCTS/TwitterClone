@@ -1,0 +1,14 @@
+﻿@using _20_MVC_Assignment_01.Models
+@model Person
+
+<ul id="ulStatistics">
+    <li>
+        @Model.Tweets.Count Tweets
+    </li>
+    <li>
+        @Html.ActionLink(@Model.Person1.Count.ToString(), "FollowDetails") Followers
+    </li>
+    <li>
+        @Html.ActionLink(@Model.People.Count.ToString(), "FollowDetails") Following
+    </li>
+</ul>
